@@ -1,0 +1,26 @@
+{
+	"dataMeg": "数据用于树形菜单",
+	"data": [
+		{
+			"itemName": "小项目",
+			"items": [
+
+			]
+		},
+		{
+			"itemName": "JS工具",
+			"items": [
+
+			]
+		},
+		{
+			"itemName": "生活工具",
+			"items": [
+				
+			]
+		},
+		{
+			"itemName": "快捷链接"
+		}
+	]
+}
