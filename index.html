@@ -38,9 +38,8 @@
 			url: './data/menu.json',
 		})
 		.then(function(resData){
-			console.log(resData);
+			new MenuTree('MenuTree', resData.data);
 		});
-		new MenuTree('MenuTree', data);
 	</script>
 </body>
 </html>
