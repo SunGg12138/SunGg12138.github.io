@@ -2,62 +2,38 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>单词本</title>
+	<title>每日十词</title>
 	<link rel="stylesheet" href="../../lib/node_modules/bootstrap/dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/style.css">
+	<script src="../../lib/node_modules/jquery/dist/jquery.min.js"></script>
 </head>
 <body>
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-4">
-				<h1>单词本</h1>
+				<h1>每日十词</h1>
 			</div>
-			<div class="col-sm-4 col-sm-offset-4 m-t-20">
-				<select name="" id="">
-					<option value="note">笔记</option>
-					<option value="baidu">百度</option>
-				</select>
-				<input type="text" class="form-control" placeholder="查单词">
+			<div class="col-sm-8">
+				<input type="date">
 			</div>
 		</div>
 		<div class="row">
 			<table class="table m-t-20">
 				<thead>
 					<tr>
-						<th>编号</th>
+						<th class="visible-sm-block visible-md-block visible-lg-block">编号</th>
 						<th>单词</th>
-						<th>音标</th>
+						<th class="visible-md-block visible-lg-block">音标</th>
 						<th>读音</th>
 						<th>翻译</th>
 					</tr>
 				</thead>
 				<tbody>
 					<tr>
-						<td>1</td>
+						<td class="visible-sm-block visible-md-block visible-lg-block">1</td>
 						<td>word</td>
-						<td>[word]</td>
-						<td>a</td>
-						<td>单词</td>
-					</tr>
-					<tr>
-						<td>1</td>
-						<td>word</td>
-						<td>[word]</td>
-						<td>a</td>
-						<td>单词</td>
-					</tr>
-					<tr>
-						<td>1</td>
-						<td>word</td>
-						<td>[word]</td>
-						<td>a</td>
-						<td>单词</td>
-					</tr>
-					<tr>
-						<td>1</td>
-						<td>word</td>
-						<td>[word]</td>
-						<td>a</td>
+						<td class="visible-md-block visible-lg-block">[word]</td>
+						<td><span class="glyphicon glyphicon-volume-up pronunciation"></span></td>
 						<td>单词</td>
 					</tr>
 				</tbody>
