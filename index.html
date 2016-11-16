@@ -2,14 +2,13 @@
 <html lang="zh-cn">
 <head>
 	<meta charset="UTF-8">
-	<title>My Tool</title>
+	<title>My Tools</title>
 	<meta name="keywords" content="前端工具," />
 	<meta name="description" content="" />
 	<link rel="stylesheet" href="lib/node_modules/bootstrap/dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/style.css">
 	<link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon">
 	<script src="lib/node_modules/jquery/dist/jquery.min.js"></script>
-	<script src="data/data.js"></script>
 	<script src="js/support.js"></script>
 	<script src="js/MenuTree.js"></script>
 	<!--[if lt IE 9]>
@@ -23,7 +22,7 @@
 			<div class="col-md-3 col-sm-4 bg-success h-100">
 				<h1>
 					<img src="images/logo.jpg" alt="logo" class="logo">
-					TOOL
+					TOOLS
 				</h1>
 				<hr>
 				<div class="list" id="MenuTree"></div>
@@ -38,7 +37,9 @@
 			url: './data/menu.json',
 		})
 		.then(function(resData){
-			new MenuTree('MenuTree', resData.data);
+			new MenuTree('MenuTree', resData.data, function(elem){
+					window.open($(elem).data('link'));
+				});
 		});
 	</script>
 </body>

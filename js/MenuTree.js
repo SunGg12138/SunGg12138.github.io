@@ -1,4 +1,4 @@
-var MenuTree = function(id, data) {
+var MenuTree = function(id, data, cb) {
 	//如果第一个参数是 dom 节点,就直接赋值，否则使用 getElementById 获取 dom
 	if (id.nodeType) {
 		this.dom = id;
@@ -6,6 +6,7 @@ var MenuTree = function(id, data) {
 		this.dom = document.getElementById(id);
 	};
 	this.data = data;
+	this.cb = cb;
 	this.init();
 };
 MenuTree.prototype = {
@@ -36,6 +37,7 @@ MenuTree.prototype = {
 			}else{
 				var thisLi = this.noMenu.cloneNode(true);
 				thisLi.innerHTML += item.itemName;
+				thisLi.setAttribute('data-link', item.link);
 			};
 			frag.appendChild(thisLi);
 		}.bind(this));
@@ -50,6 +52,7 @@ MenuTree.prototype = {
 			var elem = e.target || e.srcElement;
 			if (hasClass(elem, 'noMenu')) {
 				e.stopPropagation();
+				this.cb(elem);
 				return;
 			};
 			//判断自己或者自己的祖先是否有 hasMenu 类
@@ -60,7 +63,7 @@ MenuTree.prototype = {
 					menuMark = $(elem).find('span').eq(0);
 				//如果没有菜单列表，则添加，有则显示或者隐藏
 				if (menuList.length === 0) {
-					new MenuTree(elem, this.data[dataIndex].items);
+					new MenuTree(elem, this.data[dataIndex].items, this.cb);
 					this.menuChange(menuMark, false);
 				}else if (menuList.css('display') === 'block') {
 					menuList.hide();
@@ -78,5 +81,9 @@ MenuTree.prototype = {
 		}else{
 			elem.html('[-]');
 		};
+	},
+	setCallback: function(fn){
+		this.callback = fn;
+		console.log(this)
 	}
 };
