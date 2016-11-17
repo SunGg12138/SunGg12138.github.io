@@ -70,6 +70,7 @@ var main = (function(){
 		};
 	//初始化
 	function init() {
+		console.log('进入 init');
 		getDOM();
 		addEvent();
 		mainW = main.offsetWidth;
@@ -78,6 +79,7 @@ var main = (function(){
 		window.placementDistance = 0;
 		mediaLoop();
 		nextBtn.click();
+		console.log('出去 init');
 	}
 	//设置背景图
 	function setBg(bgSrc) {
