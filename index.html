@@ -3,43 +3,138 @@
 <head>
 	<meta charset="UTF-8">
 	<title>My Tools</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="renderer" content="webkit">
 	<meta name="keywords" content="前端工具," />
 	<meta name="description" content="" />
 	<link rel="stylesheet" href="lib/node_modules/bootstrap/dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/style.css">
-	<link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon">
+	<!-- <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon"> -->
 	<script src="lib/node_modules/jquery/dist/jquery.min.js"></script>
-	<script src="js/support.js"></script>
-	<script src="js/MenuTree.js"></script>
+	<script src="lib/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 	<!--[if lt IE 9]>
       <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
 <body>
-	<div class="container h-100">
-		<div class="row h-100">
-			<div class="col-md-3 col-sm-4 bg-success h-100">
-				<h1>
-					<img src="images/logo.jpg" alt="logo" class="logo">
-					TOOLS
-				</h1>
-				<hr>
-				<div class="list" id="MenuTree"></div>
+	<nav class="navbar navbar-inverse" role="navigation">
+	  <div class="container-fluid">
+	    <!-- Brand and toggle get grouped for better mobile display -->
+	    <div class="navbar-header">
+	      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+	        <span class="sr-only">Toggle navigation</span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	      </button>
+	      <h1 class="navbar-brand">
+	      	<a href="#">Tools</a>
+	      </h1>
+	    </div>
+	    <!-- Collect the nav links, forms, and other content for toggling -->
+	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+	      <ul class="nav navbar-nav navbar-right">
+	        <li><a href="#">Link</a></li>
+	        <li class="dropdown">
+	          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <span class="caret"></span></a>
+	          <ul class="dropdown-menu" role="menu">
+	            <li><a href="#">Action</a></li>
+	            <li><a href="#">Another action</a></li>
+	            <li><a href="#">Something else here</a></li>
+	            <li class="divider"></li>
+	            <li><a href="#">Separated link</a></li>
+	          </ul>
+	        </li>
+	      </ul>
+	      <form class="navbar-form navbar-right" role="search">
+	        <div class="form-group">
+	        	<select class="form-control">
+	        		<option value="">本站</option>
+	        		<option value="">百度</option>
+	        	</select>
+				&nbsp;
+	          	<input type="text" class="form-control" placeholder="搜索">
+	        </div>
+	      </form>
+	    </div>
+	  </div>
+	</nav>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-sm-3 col-xs-12 sidebar" id="sidebarMobile">
+				<ul class="nav nav-sidebar">
+					<li class="active">
+						<a href="#">数据</a>
+					</li>
+					<li>
+						<a href="#">数据</a>
+					</li>
+					<li>
+						<a href="#">数据</a>
+					</li>
+				</ul>
+				<ul class="nav nav-sidebar">
+					<li>
+						<a href="#">数据</a>
+					</li>
+					<li>
+						<a href="#">数据</a>
+					</li>
+					<li>
+						<a href="#">数据</a>
+					</li>
+				</ul>
 			</div>
-			<div class="col-md-9 col-sm-8 bg-info h-100">
-				<iframe src="" frameborder="0" width="100%" height="100%"></iframe>
+			<div class="col-sm-9 col-sm-offset-3 col-xs-12">
+				<table class="table">
+					<thead>
+						<tr>
+							<th>adsad</th>
+							<th>adsad</th>
+							<th>adsad</th>
+							<th>adsad</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>asdasds</td>
+							<td>asdasds</td>
+							<td>asdasds</td>
+							<td>asdasds</td>
+						</tr>
+						<tr>
+							<td>asdasds</td>
+							<td>asdasds</td>
+							<td>asdasds</td>
+							<td>asdasds</td>
+						</tr>
+						<tr>
+							<td>asdasds</td>
+							<td>asdasds</td>
+							<td>asdasds</td>
+							<td>asdasds</td>
+						</tr>
+					</tbody>
+				</table>
 			</div>
 		</div>
 	</div>
 	<script>
-		$.ajax({
-			url: './data/menu.json',
-		})
-		.then(function(resData){
-			new MenuTree('MenuTree', resData.data, function(elem){
-					window.open($(elem).data('link'));
-				});
+		var startX, moveEndX, X;
+		document.addEventListener('touchstart', function(e) {
+		    startX = e.touches[0].pageX;
+		});
+		document.addEventListener('touchmove', function(e) {
+		    e.preventDefault();
+		    moveEndX = e.changedTouches[0].pageX;
+		    X = moveEndX - startX;
+		    if ( X > 20 ) {
+		    	document.getElementById('sidebarMobile').style.left = '0px';
+		    }else if ( X < 20 ) {
+		    	document.getElementById('sidebarMobile').style.left = '-100%';
+		    }
 		});
 	</script>
 </body>
