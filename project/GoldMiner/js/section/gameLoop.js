@@ -11,3 +11,7 @@ function gameLoop() {
 	};
 }
 gameLoop.loopFuncs = [];
+//停止执行 gameLoop
+function stopGameLoop() {
+	stopLoop = true;
+}

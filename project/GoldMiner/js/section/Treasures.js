@@ -10,11 +10,10 @@ Treasures.prototype = {
 	init: function() {
 		// this.typesDensity = [];   //宝藏类型的密度
 		// this.typesRarity = [];   //宝藏类型的稀有度
-
 		for (var i=0;i<this.count;i++) {
 			var thisWidth = getRandom(1,3)*20 + 20;
 			var thisPositionX = getRandom(0, mainW-thisWidth);
-			var thisPositionY = getRandom(config.ropeHeight*2, mainH-thisWidth);
+			var thisPositionY = getRandom(config.ropeHeight*2.5, mainH-thisWidth - 50);
 			var tempObj = {originX: thisPositionX+thisWidth/2, originY: thisPositionY+thisWidth/2, width: thisWidth};
 			var thisTag = $('<i class="treasures">');
 			thisTag.css({

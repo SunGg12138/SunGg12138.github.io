@@ -1,10 +1,10 @@
 function ropeShorten() {
 	nowHeight = parseInt($rope[0].style.height);
-	$rope[0].style.height = nowHeight - 2 + 'px';
+	$rope[0].style.height = nowHeight - config.ropeSpeed + 'px';
 }
 function ropeElongate() {
 	nowHeight = parseInt($rope[0].style.height);
-	$rope[0].style.height = nowHeight + 2 + 'px';
+	$rope[0].style.height = nowHeight + config.ropeSpeed + 'px';
 }
 function ropeRotate() {
 	$rope.addClass('ropeRotate');
@@ -32,6 +32,7 @@ function ropeBack() {
 			if (gameLoop.loopFuncs.length > 2) {
 				treasures.clearOne(config.treasure.treasureIndex);
 			};
+			config.ropeSpeed = 5;
 			gameLoop.loopFuncs = [];
 			$rope[0].style = 'height:'+config.ropeHeight + 'px';
 			config.treasure = {};
@@ -51,10 +52,11 @@ function ropeCollisionDetection() {
         var disparityY =  Math.abs(item.originY - hookPos.y);
         var isSatisfy = disparityDetection(disparityX, disparityY, item.width/2);
         if (isSatisfy) {
-            ropeBack();
             config.treasure.treasureDOM = treasures.tags[index];
             config.treasure.treasureIndex = index;
             config.treasure.treasureAttr = item;
+            config.ropeSpeed -= (item.width-20)/20;
+            ropeBack();
             pullTreasure();
         };
     });
