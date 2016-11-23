@@ -10,15 +10,20 @@
 	<script src="js/section/rope.js"></script>
 	<script src="js/section/gameLoop.js"></script>
 	<script src="js/support.js"></script>
-	<script src="js/index.js"></script>
 </head>
 <body>
 	<div id="main">
+		<div class="score-board">
+			<div>第<span id="rank">1</span>关</div>
+			<div>通关分数：<span id="rank-score">1000</span></div>
+			分数：<span id="score">0</span>
+		</div>
 		<div class="rope" id="rope" style="height: 100px;">
 			<div class="hook"></div>
 		</div>
 	</div>
 	<h1>黄金矿工（请按 K 键）</h1>
 	<script src="js/index.js"></script>
+	<script src="js/level/lev1.js"></script>
 </body>
 </html>

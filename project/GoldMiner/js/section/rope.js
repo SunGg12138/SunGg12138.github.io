@@ -30,7 +30,8 @@ function ropeBack() {
 		if (nowHeight <= config.ropeHeight) {
 			if (gameLoop.loopFuncs.length > 2) {
 				treasures.clearOne(config.treasure.treasureIndex);
-				console.log('得 '+config.treasure.treasureDOM.data('score')+' 分');
+				$('#score').html($('#score').html()-0+Number(config.treasure.treasureDOM.data('score')));
+				isWin();
 			};
 			config.ropeSpeed = 5;
 			gameLoop.loopFuncs = [];

@@ -14,19 +14,22 @@ var Treasures = function(treasuresConfig) {
 };
 Treasures.prototype = {
 	init: function() {
-		var thisWidth,DeepPos,thisPositionX,thisPositionY;
+		var thisWidth,DeepPos,originX,originY,isRandomSuccess,count;
 		this.types.forEach(function(item, index){
 			for (var i=0;i<item.count;i++) {
+				isRandomSuccess = true;   //随机的位置是否符合需要
+				count = 0;
 				thisWidth = item.width;
 				DeepPos = this.getDeepPos(item.deepRank, thisWidth);
-				thisPositionX = getRandom(0, mainW-thisWidth);
-				thisPositionY = getRandom(DeepPos[0], DeepPos[1]);
-				var tempObj = {originX: thisPositionX+thisWidth/2, originY: thisPositionY+thisWidth/2, width: thisWidth};
-				var thisTag = $('<i class="treasures">');
+				originX = getRandom(0, mainW-thisWidth)+thisWidth/2;
+				originY = getRandom(DeepPos[0], DeepPos[1])+thisWidth/2;
+				var tempObj = {originX: originX, originY: originY, width: thisWidth};
+				item.tag = item.tag || '<i class="treasures">';
+				var thisTag = $(item.tag);
 				thisTag[0].style = item.style;
 				thisTag.css({
-					left: thisPositionX,
-					top: thisPositionY,
+					left: originX-thisWidth/2,
+					top: originY-thisWidth/2,
 					width: thisWidth,
 					height: thisWidth
 				});
@@ -43,6 +46,7 @@ Treasures.prototype = {
 		this.tags.forEach(function(item){
 			item.remove();
 		});
+		return this;
 	},
 	clearOne: function(index) {
 		this.tags[index].remove();
