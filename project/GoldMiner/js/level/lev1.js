@@ -1,5 +1,5 @@
 $rank.html(1);
-$rankScore.html(1000);
+$rankScore.html(1600);
 $score.html(0);
 // 开始
 if (treasures instanceof Treasures) {
@@ -8,41 +8,50 @@ if (treasures instanceof Treasures) {
 var treasures = new Treasures({
 	types: [
 		{
-			name: '大石头',
-			count: 2,
-			deepRank: 2,
-			score: 20,
-			slowRank: 4,
-			width: 80,
-			style: 'background:#708090;'
-		},
-		{
 			name: '小石头',
-			count: 2,
+			count: 3,
 			deepRank: 2,
-			score: 20,
+			score: 50,
 			slowRank: 2,
 			width: 40,
-			style: 'background:#708090;'
+			tag: '<img src="./images/rock.png">'
 		},
 		{
-			name: '小金块',
-			count: 2,
-			deepRank: 3,
-			score: 200,
-			slowRank: 1,
-			width: 40,
-			style: 'background:rgb(255,215,0);'
+			name: '大石头',
+			count: 3,
+			deepRank: 2,
+			score: 100,
+			slowRank: 4,
+			width: 80,
+			tag: '<img src="./images/rock.png">'
 		},
 		{
-			name: '大金块',
+			name: '金盆',
 			count: 2,
 			deepRank: 3,
 			score: 500,
-			slowRank: 3,
-			width: 80,
-			style: 'background:rgb(255,215,0);'
-		}
+			slowRank: 2,
+			width: 60,
+			tag: '<img src="./images/gold-repository.png">'
+		},
+		{
+			name: '彩色宝石',
+			count: 1,
+			deepRank: 3,
+			score: 800,
+			slowRank: 2,
+			width: 40,
+			tag: '<img src="./images/high-grade-diamond.png">'
+		},
+		{
+			name: '红宝石',
+			count: 1,
+			deepRank: 3,
+			score: 600,
+			slowRank: 2,
+			width: 40,
+			tag: '<img src="./images/red-ruby.png">'
+		},
 	]
 });
 ropeRotate();

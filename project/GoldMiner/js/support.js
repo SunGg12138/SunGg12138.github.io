@@ -45,6 +45,6 @@ function getHookPos() {
 }
 function isWin() {
     if (Number($score.html()) >= Number($rankScore.html())) {
-        alert('赢了');
+        alert('恭喜！通关了');
     };
 }

@@ -2,7 +2,7 @@ html {
 	font-size: 100px;
 }
 body,h1,h2,h3,h4,h5,h6,ul,li{padding: 0;margin: 0;}
-body{font-size: 12px;font-family: "微软雅黑";background: #000;}
+body{font-size: 12px;font-family: "微软雅黑";background: #cea344;}
 h1 {
 	color: #fff;
 }
@@ -27,26 +27,18 @@ h1 {
 }
 /*钩子*/
 .hook {
-	width: .3rem;
-	height: .3rem;
-	position: absolute;
-	bottom: -.2rem;
-	left: -.14rem;
-	background: red;
-}
-.hook:after {
-	content: '.';
 	width: .2rem;
 	height: .25rem;
+	border: .05rem solid red;
+	border-bottom: none;
 	position: absolute;
-	bottom: 0;
-	left: .05rem;
-	background: #000;
+	bottom: -.25rem;
+	left: -.14rem;
 }
 /*宝藏*/
 .treasures {
 	display: inline-block;
-	border-radius: 50%;
 	position: absolute;
 	text-align: center;
+	cursor: pointer;
 }

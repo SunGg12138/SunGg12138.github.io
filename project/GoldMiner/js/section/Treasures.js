@@ -24,8 +24,9 @@ Treasures.prototype = {
 				originX = getRandom(0, mainW-thisWidth)+thisWidth/2;
 				originY = getRandom(DeepPos[0], DeepPos[1])+thisWidth/2;
 				var tempObj = {originX: originX, originY: originY, width: thisWidth};
-				item.tag = item.tag || '<i class="treasures">';
+				item.tag = item.tag || '<i>';
 				var thisTag = $(item.tag);
+				thisTag.addClass('treasures');
 				thisTag[0].style = item.style;
 				thisTag.css({
 					left: originX-thisWidth/2,
@@ -33,9 +34,12 @@ Treasures.prototype = {
 					width: thisWidth,
 					height: thisWidth
 				});
-				thisTag.html(item.name);
-				thisTag.attr('data-slowrank', item.slowRank);
-				thisTag.attr('data-score', item.score);
+				thisTag.attr({
+					'data-slowrank': item.slowRank,
+					'data-score': item.score,
+					alt: item.name,
+					title: item.name+','+item.score+'分,减少'+item.slowRank+'速度'
+				});
 				$main.append(thisTag);
 				this.tags.push(thisTag);
 				this.attrs.push(tempObj);
