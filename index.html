@@ -13,164 +13,39 @@
 	<!-- <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon"> -->
 	<script src="lib/node_modules/jquery/dist/jquery.min.js"></script>
 	<script src="lib/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+	<script src="js/search.js"></script>
 	<!--[if lt IE 9]>
       <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
 <body>
-	<nav class="navbar navbar-inverse" role="navigation">
-	  <div class="container-fluid">
-	    <!-- Brand and toggle get grouped for better mobile display -->
-	    <div class="navbar-header">
-	      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-	        <span class="sr-only">Toggle navigation</span>
-	        <span class="icon-bar"></span>
-	        <span class="icon-bar"></span>
-	        <span class="icon-bar"></span>
-	      </button>
-	      <h1 class="navbar-brand">
-	      	<a href="#">Tools</a>
-	      </h1>
-	    </div>
-	    <!-- Collect the nav links, forms, and other content for toggling -->
-	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-	      <ul class="nav navbar-nav navbar-right">
-	        <li><a href="#">Link</a></li>
-	        <li class="dropdown">
-	          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <span class="caret"></span></a>
-	          <ul class="dropdown-menu" role="menu">
-	            <li><a href="#">Action</a></li>
-	            <li><a href="#">Another action</a></li>
-	            <li><a href="#">Something else here</a></li>
-	            <li class="divider"></li>
-	            <li><a href="#">Separated link</a></li>
-	          </ul>
-	        </li>
-	      </ul>
-	      <form class="navbar-form navbar-right" role="search">
-	        <div class="form-group">
-	        	<select class="form-control">
-	        		<option value="">本站</option>
-	        		<option value="">百度</option>
-	        	</select>
-				&nbsp;
-	          	<input type="text" class="form-control" placeholder="搜索">
-	        </div>
-	      </form>
-	    </div>
-	  </div>
-	</nav>
-	<div class="container-fluid">
-		<div class="row">
-			<div class="col-sm-3 col-xs-12 sidebar" id="sidebarMobile">
-				<ul class="nav nav-sidebar">
-					<li class="active">
-						<a href="#">数据</a>
-					</li>
-					<li>
-						<a href="#">数据</a>
-					</li>
-					<li>
-						<a href="#">数据</a>
-					</li>
-				</ul>
-				<ul class="nav nav-sidebar">
-					<li>
-						<a href="#">数据</a>
-					</li>
-					<li>
-						<a href="#">数据</a>
-					</li>
-					<li>
-						<a href="#">数据</a>
-					</li>
-				</ul>
-			</div>
-			<div class="col-sm-9 col-sm-offset-3 col-xs-12">
-				<table class="table">
-					<thead>
-						<tr>
-							<th>adsad</th>
-							<th>adsad</th>
-							<th>adsad</th>
-							<th>adsad</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td>asdasds</td>
-							<td>asdasds</td>
-							<td>asdasds</td>
-							<td>asdasds</td>
-						</tr>
-						<tr>
-							<td>asdasds</td>
-							<td>asdasds</td>
-							<td>asdasds</td>
-							<td>asdasds</td>
-						</tr>
-						<tr>
-							<td>asdasds</td>
-							<td>asdasds</td>
-							<td>asdasds</td>
-							<td>asdasds</td>
-						</tr>
-						<tr>
-							<td>asdasds</td>
-							<td>asdasds</td>
-							<td>asdasds</td>
-							<td>asdasds</td>
-						</tr>
-						<tr>
-							<td>asdasds</td>
-							<td>asdasds</td>
-							<td>asdasds</td>
-							<td>asdasds</td>
-						</tr>
-						<tr>
-							<td>asdasds</td>
-							<td>asdasds</td>
-							<td>asdasds</td>
-							<td>asdasds</td>
-						</tr>
-						<tr>
-							<td>asdasds</td>
-							<td>asdasds</td>
-							<td>asdasds</td>
-							<td>asdasds</td>
-						</tr>
-						<tr>
-							<td>asdasds</td>
-							<td>asdasds</td>
-							<td>asdasds</td>
-							<td>asdasds</td>
-						</tr>
-						<tr>
-							<td>asdasds</td>
-							<td>asdasds</td>
-							<td>asdasds</td>
-							<td>asdasds</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-		</div>
+	<div id="search-box">
+		<h1>Tools</h1>
+		<input type="text" class="form-control search-text" placeholder="搜索：">
+		<ul class="search-result"></ul>
 	</div>
 	<script>
-		var startX, moveEndX, X;
-		document.addEventListener('touchstart', function(e) {
-		    startX = e.touches[0].pageX;
-		});
-		document.addEventListener('touchend', function(e) {
-		    moveEndX = e.changedTouches[0].pageX;
-		    X = moveEndX - startX;
-		    if ( X > 30 ) {
-		    	document.getElementById('sidebarMobile').style.left = '0px';
-		    }else if ( X < 30 ) {
-		    	document.getElementById('sidebarMobile').style.left = '-100%';
-		    }
-		});
+		var data = [
+				{
+					href: 'https://sungg12138.github.io/project/ChineseChess/index.html',
+					searchText: '中国象棋,游戏,game,作品,github'
+				},
+				{
+					href: 'https://sungg12138.github.io/project/musicPlayer/index.html',
+					searchText: '音乐,作品,github,mp3播放器'
+				},
+				{
+					href: 'https://sungg12138.github.io/project/GoldMiner/index.html',
+					searchText: '挖金矿,作品,音乐,github,game,黄金矿工'
+				},
+				{
+					href: 'http://crm.daohangma.com/zuopin/lm15/sunjinguang/work/videoPlayer/index.html',
+					searchText: '视频,播放器,github,mp4'
+				}
+			];
+		var search = new SearchPrompt("search-box");
+		search.data = search.data.concat(data);
 	</script>
 </body>
 </html>
